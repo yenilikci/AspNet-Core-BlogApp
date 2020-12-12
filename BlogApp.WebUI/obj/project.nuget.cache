@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "QC7jfZ8Qcum9SaXfA+q1q6t5FltIOsEU9yuaXgUQEnPJ6hbBYCn4Hl9YtI/ypKsqz0Nac1P0H531hh+erC9vsQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\melih\\source\\repos\\BlogApp\\BlogApp.WebUI\\BlogApp.WebUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\melih\\.nuget\\packages\\bootstrap\\4.5.3\\bootstrap.4.5.3.nupkg.sha512",
+    "C:\\Users\\melih\\.nuget\\packages\\jquery\\3.0.0\\jquery.3.0.0.nupkg.sha512",
+    "C:\\Users\\melih\\.nuget\\packages\\popper.js\\1.16.1\\popper.js.1.16.1.nupkg.sha512"
+  ],
+  "logs": []
+}
