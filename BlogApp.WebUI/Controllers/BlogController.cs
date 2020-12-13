@@ -1,5 +1,7 @@
 ﻿using BlogApp.Data.Abstract;
+using BlogApp.Entity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +11,13 @@ namespace BlogApp.WebUI.Controllers
 {
     public class BlogController : Controller
     {
-        private IBlogRepository repository;
+        private IBlogRepository _blogRepository;
+        private ICategoryRepository _categoryRepository;
 
-        public BlogController(IBlogRepository _repo)
+        public BlogController(IBlogRepository blogrepo,ICategoryRepository categoryrepo)
         {
-            repository = _repo;
+            _blogRepository = blogrepo;
+            _categoryRepository = categoryrepo;
         }
             
         public IActionResult Index()
@@ -24,7 +28,28 @@ namespace BlogApp.WebUI.Controllers
         public IActionResult List()
         {
             //repository.GetAll() ile bir blog listesi gönderiyoruz
-            return View(repository.GetAll());
+            return View(_blogRepository.GetAll());
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            ViewBag.Categories = new SelectList(_categoryRepository.GetAll(), "Id", "Name");
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Blog entity)
+        {
+            //blog kayıtın zamanına kayıt zamanı ataması
+            entity.Date = DateTime.Now;
+
+            if (ModelState.IsValid) //Validasyon gerekliliklerini geçmişse
+            {
+                _blogRepository.AddBlog(entity);
+                return RedirectToAction("List");
+            }
+            return View(entity);
         }
 
     }
