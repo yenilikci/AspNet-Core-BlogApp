@@ -84,3 +84,4 @@ C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\bin\Debug\netcoreapp3.1\BlogAp
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\bin\Debug\netcoreapp3.1\BlogApp.Entity.pdb
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Index.cshtml.g.cs
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Blog\List.cshtml.g.cs
+C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Category\List.cshtml.g.cs
