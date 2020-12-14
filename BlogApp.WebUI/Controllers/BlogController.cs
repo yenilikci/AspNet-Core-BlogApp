@@ -49,7 +49,31 @@ namespace BlogApp.WebUI.Controllers
                 _blogRepository.AddBlog(entity);
                 return RedirectToAction("List");
             }
+            ViewBag.Categories = new SelectList(_categoryRepository.GetAll(), "Id", "Name"); 
             return View(entity);
+        }
+           
+        [HttpGet]
+        public IActionResult Edit(int id) //dışarıdan bir id almalı gönderdiğim id'ye göre sorgulama yapıp veritabından seçtiğim veriyi form üzerine gönderebilmeliyim
+        {
+            ViewBag.Categories = new SelectList(_categoryRepository.GetAll(), "Id", "Name");
+            return View(_blogRepository.GetById(id));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Blog entity)
+        {
+            if (ModelState.IsValid)
+            {
+                _blogRepository.UpdateBlog(entity);
+                //ekleme işlemi yapılır List view'ine kullanıcı yönlendirilir, mesajda gönderilir
+                TempData["message"] = $"{entity.Title} güncellendi";
+                return RedirectToAction("List");
+            }
+            //eğer bir problem varsa problemli entity'i kullanıcıya gösterelim
+            ViewBag.Categories = new SelectList(_categoryRepository.GetAll(), "Id", "Name");
+            return View(entity);
+
         }
 
     }

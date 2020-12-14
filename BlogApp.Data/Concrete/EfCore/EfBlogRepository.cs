@@ -44,7 +44,16 @@ namespace BlogApp.Data.Concrete.EfCore
 
         public void UpdateBlog(Blog entity)
         {
-            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            //context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            var blog = GetById(entity.Id);
+            if (blog !=null)
+            {
+                blog.Title = entity.Title;
+                blog.Description = entity.Description;
+                blog.CategoryId = entity.CategoryId;
+                blog.Image = entity.Image;
+                blog.Date = DateTime.Now;
+            }
             context.SaveChanges();
         }
     }

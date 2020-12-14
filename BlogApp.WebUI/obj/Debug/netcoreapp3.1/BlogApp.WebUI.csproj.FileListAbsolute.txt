@@ -89,3 +89,5 @@ C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\bin\Debug\netcoreapp3.1\Micros
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\BlogApp.WebUI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Create.cshtml.g.cs
+C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Category\Create.cshtml.g.cs
+C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Edit.cshtml.g.cs
