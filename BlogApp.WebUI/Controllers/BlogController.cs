@@ -14,12 +14,12 @@ namespace BlogApp.WebUI.Controllers
         private IBlogRepository _blogRepository;
         private ICategoryRepository _categoryRepository;
 
-        public BlogController(IBlogRepository blogrepo,ICategoryRepository categoryrepo)
+        public BlogController(IBlogRepository blogrepo, ICategoryRepository categoryrepo)
         {
             _blogRepository = blogrepo;
             _categoryRepository = categoryrepo;
         }
-            
+
         public IActionResult Index()
         {
             return View();
@@ -49,10 +49,10 @@ namespace BlogApp.WebUI.Controllers
                 _blogRepository.AddBlog(entity);
                 return RedirectToAction("List");
             }
-            ViewBag.Categories = new SelectList(_categoryRepository.GetAll(), "Id", "Name"); 
+            ViewBag.Categories = new SelectList(_categoryRepository.GetAll(), "Id", "Name");
             return View(entity);
         }
-           
+
         [HttpGet]
         public IActionResult Edit(int id) //dışarıdan bir id almalı gönderdiğim id'ye göre sorgulama yapıp veritabından seçtiğim veriyi form üzerine gönderebilmeliyim
         {
@@ -74,6 +74,37 @@ namespace BlogApp.WebUI.Controllers
             ViewBag.Categories = new SelectList(_categoryRepository.GetAll(), "Id", "Name");
             return View(entity);
 
+        }
+
+        [HttpGet]
+        public IActionResult AddOrUpdate(int? id) //id nullable çünkü yeni bir kayıt yaparsam buraya id gelmeyecek güncelleme işlemi ise id olacak
+        {
+            ViewBag.Categories = new SelectList(_categoryRepository.GetAll(), "Id", "Name");
+
+            if (id == null)
+            {
+                //yeni kayıt  
+                return View(new Blog()); //içerisinde yeni blog elemanı göndermeliyiz (Id oto 0 atanır)
+            }
+            else
+            {
+                //güncelleme
+                return View(_blogRepository.GetById((int)id)); //id nullable olduğu için int cast edildi
+            }
+        }
+
+        [HttpPost]
+        public IActionResult AddOrUpdate(Blog entity)
+        {
+            if (ModelState.IsValid)
+            {
+                _blogRepository.SaveBlog(entity);
+                TempData["message"] = $"{entity.Title} kayıt edildi";
+                return RedirectToAction("List");
+            }
+
+            ViewBag.Categories = new SelectList(_categoryRepository.GetAll(), "Id", "Name");
+            return View(entity);
         }
 
     }

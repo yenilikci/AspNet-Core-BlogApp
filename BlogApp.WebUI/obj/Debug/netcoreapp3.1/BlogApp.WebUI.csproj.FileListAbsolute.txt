@@ -91,3 +91,4 @@ C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\BlogAp
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Create.cshtml.g.cs
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Category\Create.cshtml.g.cs
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Edit.cshtml.g.cs
+C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Blog\AddOrUpdate.cshtml.g.cs

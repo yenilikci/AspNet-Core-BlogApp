@@ -42,6 +42,31 @@ namespace BlogApp.Data.Concrete.EfCore
             return context.Blogs.FirstOrDefault(p => p.Id == blogId);
         }
 
+        public void SaveBlog(Blog entity)
+        {
+            //gelen entity id eğer 0 ise demek ki yeni blog kaydı yapılacak
+            if (entity.Id == 0)
+            {
+                entity.Date = DateTime.Now; 
+                context.Blogs.Add(entity);
+            }
+            //gelen id 0 dan farklı bir değer ise güncelleme yapılır
+            else
+            {
+                var blog = GetById(entity.Id);
+                if (blog != null)
+                {
+                    blog.Title = entity.Title;
+                    blog.Description = entity.Description;
+                    blog.CategoryId = entity.CategoryId;
+                    blog.Image = entity.Image;
+                    blog.Date = DateTime.Now;
+                }
+            }
+            //eklenene veya güncellenen kayıt kaydedilir
+            context.SaveChanges();
+        }
+
         public void UpdateBlog(Blog entity)
         {
             //context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
