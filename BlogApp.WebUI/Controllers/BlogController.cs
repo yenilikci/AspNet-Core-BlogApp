@@ -25,6 +25,11 @@ namespace BlogApp.WebUI.Controllers
             return View(_blogRepository.GetAll().Where(i => i.isApproved == true).OrderByDescending(i => i.Date));
         }
 
+        public IActionResult Details(int id)
+        {
+            return View(_blogRepository.GetById(id));
+        }
+
         public IActionResult List()
         {
             //repository.GetAll() ile bir blog listesi gönderiyoruz
