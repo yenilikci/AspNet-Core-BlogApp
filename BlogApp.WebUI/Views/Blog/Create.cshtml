@@ -26,8 +26,24 @@
 
         <div class="form-group">
             <label asp-for="Image"></label>
-            <input asp-for="Image" class="form-control"/>
+            <input asp-for="Image" class="form-control" />
         </div>
+
+
+        <div class="form-check">
+            <label class="form-check-label">
+                <input asp-for="isHome" class="form-check-input" />
+                is Home
+            </label>
+        </div>
+
+        <div class="form-check">
+            <label class="form-check-label">
+                <input asp-for="isApproved" class="form-check-input" />
+                is Approved
+            </label>
+        </div>
+
 
         <div class="form-group">
             <label asp-for="CategoryId"></label>

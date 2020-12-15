@@ -22,7 +22,7 @@ namespace BlogApp.WebUI.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(_blogRepository.GetAll().Where(i => i.isApproved == true).OrderByDescending(i => i.Date));
         }
 
         public IActionResult List()

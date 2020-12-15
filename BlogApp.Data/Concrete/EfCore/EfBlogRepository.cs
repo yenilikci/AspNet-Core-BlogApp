@@ -61,6 +61,8 @@ namespace BlogApp.Data.Concrete.EfCore
                     blog.CategoryId = entity.CategoryId;
                     blog.Image = entity.Image;
                     blog.Date = DateTime.Now;
+                    blog.isHome = entity.isHome;
+                    blog.isApproved = entity.isApproved;
                 }
             }
             //eklenene veya güncellenen kayıt kaydedilir
@@ -78,6 +80,8 @@ namespace BlogApp.Data.Concrete.EfCore
                 blog.CategoryId = entity.CategoryId;
                 blog.Image = entity.Image;
                 blog.Date = DateTime.Now;
+                blog.isHome = entity.isHome;
+                blog.isApproved = entity.isApproved;
             }
             context.SaveChanges();
         }
