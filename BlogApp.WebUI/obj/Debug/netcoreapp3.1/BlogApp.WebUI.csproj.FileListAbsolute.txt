@@ -97,3 +97,4 @@ C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CategoryMenu\Default.cshtml.g.cs
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_BlogList.cshtml.g.cs
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Details.cshtml.g.cs
+C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_AdminLayout.cshtml.g.cs

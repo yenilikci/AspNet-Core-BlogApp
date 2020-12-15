@@ -1,48 +1,52 @@
 ﻿@model IEnumerable<Category>
 
-    <div class="container mt-3">
-        <h2>Category List</h2>
-        <hr />
-        <div class="row">
-            <div class="col">
-                @if (Model.Count() > 0)
-                {
-                    <table class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>@item.Id</td>
-                                    <td>@item.Name</td>
-                                    <td>
-                                        <a asp-action="AddOrUpdate" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-sm btn-primary">
-                                            Details
-                                        </a>
-                                        <a asp-action="Delete" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
-                                            Delete
-                                        </a>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
+@{
+    ViewData["Title"] = "List";
+    Layout = "_AdminLayout";
+}
 
-                }
-                else
-                { 
-                    <div class="alert alert-danger">
-                        Kategori Eklenmemiş
-                    </div>
-                }
-            </div>
+<div class="container mt-3">
+    <h2>Category List</h2>
+    <hr />
+    <div class="row">
+        <div class="col">
+            @if (Model.Count() > 0)
+            {
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>
+                                    <a asp-action="AddOrUpdate" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-sm btn-primary">
+                                        Details
+                                    </a>
+                                    <a asp-action="Delete" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                                        Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            }
+            else
+            {
+                <div class="alert alert-danger">
+                    Kategori Eklenmemiş
+                </div>
+            }
         </div>
     </div>
+</div>
 
-   
