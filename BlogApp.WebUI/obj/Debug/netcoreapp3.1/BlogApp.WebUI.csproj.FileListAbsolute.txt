@@ -94,3 +94,4 @@ C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Blog\AddOrUpdate.cshtml.g.cs
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Category\AddOrUpdate.cshtml.g.cs
 C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Delete.cshtml.g.cs
+C:\Users\melih\source\repos\BlogApp\BlogApp.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CategoryMenu\Default.cshtml.g.cs
