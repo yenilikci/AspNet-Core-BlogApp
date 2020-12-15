@@ -107,5 +107,22 @@ namespace BlogApp.WebUI.Controllers
             return View(entity);
         }
 
+        [HttpGet]
+        public IActionResult Delete(int id) //list'den delete butonuna basılınca id ile gelir
+        {
+            return View(_blogRepository.GetById(id));
+            //gelen id ile kayıtı alır form üzerine aktarırız
+        }
+
+
+        [HttpPost,ActionName("Delete")] //get ve post actionların imzası aynı olacağından hatanın önüne geçmek için post kısmını DeleteConfirmed yaparsak
+        //ve ActionName("Delete") diye parametre olarak verirsek hatayı önleriz
+        public IActionResult DeleteConfirmed(int id) 
+        {
+            _blogRepository.DeleteBlog(id);
+            TempData["message"] = $"{id} numaralı kayıt silindi";
+            return RedirectToAction("List");
+        }
+
     }
 }
