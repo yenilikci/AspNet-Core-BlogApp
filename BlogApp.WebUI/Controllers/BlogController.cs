@@ -20,13 +20,19 @@ namespace BlogApp.WebUI.Controllers
             _categoryRepository = categoryrepo;
         }
 
-        public IActionResult Index(int? id)
+        public IActionResult Index(int? id,string q)
         {
                 var query = _blogRepository.GetAll().Where(i => i.isApproved == true);
                 if (id != null)
                 {
                     query = query.Where(i => i.CategoryId == id);
                 }
+
+                if (!string.IsNullOrEmpty(q)) //burdan gelen q null ya da boşluk karakterine eşit değil ise
+                {
+                query = query.Where(i => i.Title.Contains(q) || i.Description.Contains(q) || i.Body.Contains(q)); //3 farklı yerde arama yapıyoruz bunlardan herhangi biri true dönerse ilgili olan kayıt gelir
+                }
+
                 return View(query.OrderByDescending(i => i.Date));   
         }
 
