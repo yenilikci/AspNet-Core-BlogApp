@@ -1,9 +1,11 @@
 ﻿using BlogApp.Data.Abstract;
 using BlogApp.Entity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -77,10 +79,19 @@ namespace BlogApp.WebUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Blog entity)
+        public async Task<IActionResult> Edit(Blog entity,IFormFile file)
         {
             if (ModelState.IsValid)
             {
+                //kayıt resmi için
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", file.FileName);
+                using (var stream = new FileStream(path,FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                //tabi entity Image'i de kaydedelim
+                entity.Image = file.FileName;
+
                 _blogRepository.UpdateBlog(entity);
                 //ekleme işlemi yapılır List view'ine kullanıcı yönlendirilir, mesajda gönderilir
                 TempData["message"] = $"{entity.Title} güncellendi";

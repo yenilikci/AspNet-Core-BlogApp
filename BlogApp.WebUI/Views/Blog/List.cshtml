@@ -8,6 +8,9 @@
 <div class="container mt-3">
     <h2>Blog List</h2>
     <hr />
+    <div>
+        <a asp-controller="Blog" asp-action="Create" class="btn btn-primary my-2">Create</a>
+    </div>
     <div class="row">
         <div class="col">
             @if (Model.Count() > 0) //burada bir blog vardır

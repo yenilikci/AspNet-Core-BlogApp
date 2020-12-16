@@ -8,7 +8,7 @@
 <div class="container mt-3">
     <h2>Edit Blog</h2>
     <hr />
-    <form asp-controller="Blog" asp-action="Edit" method="post">
+    <form asp-controller="Blog" asp-action="Edit" method="post" enctype="multipart/form-data">
 
         @* update işleminde hidden input olarak id bilgisi de gerekli *@
         <input type="hidden" asp-for="Id" />
@@ -30,8 +30,8 @@
 
 
         <div class="form-group">
-            <label asp-for="Image"></label>
-            <input asp-for="Image" class="form-control" />
+            <img src="~/img/@Model.Image" width="120" />
+            <input type="file" name="file" id="file" class="form-control" />
         </div>
 
         <div class="form-check">
