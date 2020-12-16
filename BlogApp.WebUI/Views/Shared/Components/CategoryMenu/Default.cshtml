@@ -7,7 +7,10 @@
 <ul class="list-group">
     @foreach (var item in Model)
     {
-        <a href="#" class="list-group-item">
+        <a asp-controller="Blog"
+           asp-action="Index" 
+           asp-route-id="@item.Id"
+           class="list-group-item @(ViewBag.SelectedCategory == item.Id.ToString() ? "active" : "")">
             @item.Name
         </a>
     }
