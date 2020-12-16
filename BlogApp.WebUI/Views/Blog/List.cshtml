@@ -21,6 +21,7 @@
                             <th>Date</th>
                             <th>is Approved</th>
                             <th>is Home </th>
+                            <th>is Slider</th>
                             <th></th>
 
                         </tr>
@@ -29,43 +30,53 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>@item.Id</td>
-                                <td>
-                                    <img src="~/img/@item.Image" alt="Alternate Text" width="100" />
-                                </td>
-                                <td>@item.Title</td>
-                                <td>@item.Date</td>
-                                <td>
-                                    @if (item.isApproved)
-                                    {
-                                        <i class="fas fa-check-circle"></i>
-                                    }
-                                    else
-                                    {
-                                        <i class="fas fa-times-circle"></i>
-                                    }
-                                </td>
-                                <td>
-                                    @if (item.isHome)
-                                    {
-                                        <i class="fas fa-check-circle"></i>
-                                    }
-                                    else
-                                    {
-                                        <i class="fas fa-times-circle"></i>
-                                    }
-                                </td>
-                                <td>
-                                    <a asp-controller="Blog" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">
-                                        Edit
-                                    </a>
-                                    <a asp-controller="Blog" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">
-                                        Delete
-                                    </a>
-                                </td>
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>
+                                <img src="~/img/@item.Image" alt="Alternate Text" width="100" />
+                            </td>
+                            <td>@item.Title</td>
+                            <td>@item.Date</td>
+                            <td>
+                                @if (item.isApproved)
+                                {
+                                    <i class="fas fa-check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="fas fa-times-circle"></i>
+                                }
+                            </td>
+                            <td>
+                                @if (item.isHome)
+                                {
+                                    <i class="fas fa-check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="fas fa-times-circle"></i>
+                                }
+                            </td>
+                            <td>
+                                @if (item.isSlider)
+                                {
+                                    <i class="fas fa-check-circle"></i>
+                                }
+                                else
+                                {
+                                    <i class="fas fa-times-circle"></i>
+                                }
+                            </td>
+                            <td>
+                                <a asp-controller="Blog" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">
+                                    Edit
+                                </a>
+                                <a asp-controller="Blog" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">
+                                    Delete
+                                </a>
+                            </td>
 
-                            </tr>
+                        </tr>
                         }
 
                     </tbody>

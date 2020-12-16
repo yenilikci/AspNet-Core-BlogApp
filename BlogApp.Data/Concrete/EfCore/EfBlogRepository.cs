@@ -63,6 +63,7 @@ namespace BlogApp.Data.Concrete.EfCore
                     blog.Date = DateTime.Now;
                     blog.isHome = entity.isHome;
                     blog.isApproved = entity.isApproved;
+                    blog.isSlider = entity.isSlider;
                 }
             }
             //eklenene veya güncellenen kayıt kaydedilir
@@ -82,6 +83,7 @@ namespace BlogApp.Data.Concrete.EfCore
                 blog.Date = DateTime.Now;
                 blog.isHome = entity.isHome;
                 blog.isApproved = entity.isApproved;
+                blog.isSlider = entity.isSlider;
             }
             context.SaveChanges();
         }
