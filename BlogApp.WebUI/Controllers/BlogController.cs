@@ -83,14 +83,17 @@ namespace BlogApp.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                //kayıt resmi için
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", file.FileName);
-                using (var stream = new FileStream(path,FileMode.Create))
+                if (file != null)
                 {
-                    await file.CopyToAsync(stream);
+                    //kayıt resmi için
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", file.FileName);
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                        //tabi entity Image'i de kaydedelim
+                        entity.Image = file.FileName;
+                    }
                 }
-                //tabi entity Image'i de kaydedelim
-                entity.Image = file.FileName;
 
                 _blogRepository.UpdateBlog(entity);
                 //ekleme işlemi yapılır List view'ine kullanıcı yönlendirilir, mesajda gönderilir

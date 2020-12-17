@@ -58,6 +58,7 @@ namespace BlogApp.Data.Concrete.EfCore
                 {
                     blog.Title = entity.Title;
                     blog.Description = entity.Description;
+                    blog.Body = entity.Body;
                     blog.CategoryId = entity.CategoryId;
                     blog.Image = entity.Image;
                     blog.Date = DateTime.Now;
@@ -78,6 +79,7 @@ namespace BlogApp.Data.Concrete.EfCore
             {
                 blog.Title = entity.Title;
                 blog.Description = entity.Description;
+                blog.Body = entity.Body;
                 blog.CategoryId = entity.CategoryId;
                 blog.Image = entity.Image;
                 blog.Date = DateTime.Now;
